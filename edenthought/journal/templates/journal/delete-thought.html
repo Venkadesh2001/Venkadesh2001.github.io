@@ -1,0 +1,22 @@
+{% extends 'journal/navbar.html'%}
+<html>
+  {%block content%}
+  <br />
+  <br />
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h2>Delete Thought</h2>
+    <h2>Are you sure to Delete this Thought?</h2>
+    <form method="POST" autocomplete="off" class="login-form">
+      {%csrf_token%}
+
+      <br />
+      <div class="btn-container">
+        <button type="submit" class="btn-login">Delete Thought</button>
+      </div>
+    </form>
+    <br />
+    <a href="{%url 'view-thought'%}">Return to Thoughts</a>
+  </div>
+
+  {%endblock%}
+</html>

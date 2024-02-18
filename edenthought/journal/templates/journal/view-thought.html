@@ -1,0 +1,28 @@
+{% extends 'journal/navbar.html'%}
+<html>
+  {%block content%}
+  <br />
+  <br />
+
+  <h2>View Thoughts</h2>
+  <hr />
+  {%for thoughts in viewThought %}
+  <div class="container bg-white shadow-md p-5 form-layout">
+    {{thoughts.title}}
+    <br />
+
+    {{thoughts.description}}
+    <br />
+    {{thoughts.date_created}}
+    <br />
+    <br />
+    <p>created by,{{thoughts.user}}</p>
+    <br />
+    <a href="{%url 'update-thought' thoughts.id%}">Update Thought</a>
+    <br />
+    <a href="{%url 'delete-thought' thoughts.id%}">Delete Thought</a>
+  </div>
+  <br />
+
+  {%endfor%} {%endblock%}
+</html>

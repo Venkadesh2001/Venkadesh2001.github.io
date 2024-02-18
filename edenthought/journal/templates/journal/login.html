@@ -1,0 +1,43 @@
+{% load static %}
+
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://bootswatch.com/5/morph/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/styles.css' %}"
+    />
+  </head>
+  <body>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+      <h2>Login here</h2>
+      <h2>Share Your Thoughts Today</h2>
+      <hr />
+      {%for message in messages %} 
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+          <p id="flash-message" class="alert alert-success float-center text-center">
+            {{message}}
+          </p>
+
+        {% endif %}
+      {% endfor %}
+      <form method="POST" autocomplete="off" class="login-form">
+        {%csrf_token%} {{loginpage.as_p}}
+        <br />
+        <div class="btn-container">
+          <button type="submit" class="btn-login">Login</button>
+        </div>
+        <br>
+        <br>
+        <a href="reset_password">Forgot Password</a>
+      </form>
+    </div>
+    <script src="{%static 'js/app.js'%}"></script>
+  </body>
+</html>

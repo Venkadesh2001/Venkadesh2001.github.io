@@ -1,0 +1,39 @@
+{% extends 'journal/navbar.html'%}
+<html>
+  {%block content%}
+  <br />
+  <br />
+  <h2>Profile Management</h2>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h2>Update Username and Email</h2>
+    <hr />
+    <form method="POST" autocomplete="off" class="login-form">
+      {%csrf_token%} {{usernameUpdateForm.as_p}}
+      <br />
+      <div class="btn-container">
+        <button type="submit" class="btn-login">Update </button>
+      </div>
+    </form>
+  </div>
+  <br />
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h2>Update Profile Picture</h2>
+    <hr />
+    <form method="POST" autocomplete="off" enctype="multipart/form-data" class="login-form">
+      {%csrf_token%} 
+      {{profileUpdateForm.as_p}}
+      <br />
+      <div class="btn-container">
+        <button type="submit" class="btn-login">Upload Profile Picture</button>
+      </div>
+    </form>
+  </div>
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h2>Delete your Account</h2>
+    <br />
+    <a href="{%url 'delete-account'%}">Proceed to delete your Account</a>
+  </div>
+
+  {%endblock%}
+</html>

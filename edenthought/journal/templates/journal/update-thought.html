@@ -1,0 +1,19 @@
+{% extends 'journal/navbar.html'%}
+<html>
+  {%block content%}
+  <br />
+  <br />
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h2>Update Thought</h2>
+    <hr />
+    <form method="POST" autocomplete="off" class="login-form">
+      {%csrf_token%} {{updateThought.as_p}}
+      <br />
+      <div class="btn-container">
+        <button type="submit" class="btn-login">Update Thought</button>
+      </div>
+    </form>
+  </div>
+
+  {%endblock%}
+</html>
